@@ -14,7 +14,7 @@ fetch(url)
   authors.forEach((news) => {
     //accessing the object element for the required item
     const { urlToImage, title, description, content, publishedAt, author, url } = news
-    //creating a div element on javascript assigning it to a variable
+    //creating a div element on javascript and assigning it to a variable
     result +=
     `<div>
         <ul class="w3-ul">
@@ -27,7 +27,7 @@ fetch(url)
             <a id="button" target="blank" href="${url}">Read more....</a>
         </ul>
     </div>`;
-  //passing the variable to an html id
+  //passing the variable to an html id to display our news results
     document.getElementById('results').innerHTML = result;
 
 
@@ -37,43 +37,3 @@ fetch(url)
 .catch(function(error) {
   console.log(error);
 }); 
-
-
-
-
-/*
-
-
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_xsLcg0j3tAqDFGSKf2lO3");
-   })();
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-var doc = new jsPDF()
-
-var sub = document.getElementById('submit');
-
-
-sub.addEventListener('click', () => {
-    //doc.text('Hello world!', 10, 10)
-    var service_id = 'gmail';
-var template_id = 'contact';
-var template_params = {
-    email:"jonnyjohn243@gmail.com",
-name: 'John',
-from_email:"juneapps12@gmail.com",
-message: 'This is awesome!'
-};
-
-emailjs.send(service_id,template_id,template_params)
-.then(function(response) {
-    console.log('SUCCESS!', response.status, response.text);
- }, function(error) {
-    console.log('FAILED...', error);
- });
-    //doc.save('a4.pdf')
-});
-*/
