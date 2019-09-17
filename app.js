@@ -1,12 +1,20 @@
 
+
+//the news api
 const url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=6ea3854e4a1442d0a682b18448030327';
+//the fetch function
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
+  //getting all the data results in an object
   let authors = data.articles;
+//creating an html title element from javascript
   let result = `<h2> Latest News</h2>`;
-  authors.forEach((user) => {
-    const { urlToImage, title, description, content, publishedAt, author, url } = user
+  //using for loop to go through the items and print them out
+  authors.forEach((news) => {
+    //accessing the object element for the required item
+    const { urlToImage, title, description, content, publishedAt, author, url } = news
+    //creating a div element on javascript assigning it to a variable
     result +=
     `<div>
         <ul class="w3-ul">
@@ -19,22 +27,12 @@ fetch(url)
             <a id="button" target="blank" href="${url}">Read more....</a>
         </ul>
     </div>`;
-  
+  //passing the variable to an html id
     document.getElementById('results').innerHTML = result;
 
 
   });
-  /*
-  return authors.map(function(author) {
-    let li = createNode('li'),
-        img = createNode('img'),
-        span = createNode('span');
-    img.src = author.urlToImage;
-    span.innerHTML = `${author.author} ${author.title}`;
-    append(li, img);
-    append(li, span);
-    append(ul, li);
-  }) */
+
 })
 .catch(function(error) {
   console.log(error);
